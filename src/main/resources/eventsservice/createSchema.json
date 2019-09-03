@@ -1,0 +1,9 @@
+{
+  "schema":
+  {
+    "metricName":"string",
+    "metricPath":"string",
+    "metricValue":"string",
+    "applicationName":"string"
+  }
+}

@@ -1,9 +1,16 @@
 /*
- *   Copyright 2018. AppDynamics LLC and its affiliates.
- *   All Rights Reserved.
- *   This is unpublished proprietary source code of AppDynamics LLC and its affiliates.
- *   The copyright notice above does not evidence any actual or intended publication of such source code.
+ * Copyright (c) 2019 AppDynamics,Inc.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.appdynamics.extensions.extensionstarter;
@@ -29,21 +36,20 @@ import static com.appdynamics.extensions.extensionstarter.util.Constants.MONITOR
 /**
  * This class will be the main implementation for the extension, the entry point for this class is
  * {@code doRun(TasksExecutionServiceProvider tasksExecutionServiceProvider)}
- *
+ * <p>
  * {@code ABaseMonitor} class takes care of all the boiler plate code required for "ExtensionMonitor"
  * like initializing {@code MonitorContexConfiguration}, setting the config file from monitor.xml etc.
  * It also internally calls[this call happens everytime the machine agent calls {@code ExtensionMonitor.execute()}]
  * {@code AMonitorJob.run()} -> which in turn calls
  * {@code doRun(TasksExecutionServiceProvider tasksExecutionServiceProvider)} method in this class. {@code AMonitorJob}
  * represents a single run of the extension.
- *
+ * <p>
  * {@code ExtensionMonitorTask} (named as "task") in an extension run(named as "Job").
  * Once all the tasks finish execution, the TaskExecutionServiceProvider(it is the execution service provider
  * for all the tasks in a job), will start DerivedMetricCalculation, print logs related to total metrics
  * sent to the controller in the current job.
  */
 public class ExtStarterMonitor extends ABaseMonitor {
-
     private static final Logger logger = LoggerFactory.getLogger(ExtStarterMonitor.class);
 
     /**
@@ -86,20 +92,23 @@ public class ExtStarterMonitor extends ABaseMonitor {
      * {@code getMetricWriteHelper()} method in {@code TaskExecutionServiceProvider} class.
      *
      * @param tasksExecutionServiceProvider {@code TaskExecutionServiceProvider} is responsible for finishing all the
-     *          tasks before initialising DerivedMetricsCalculator (It is basically like a service that executes the
-     *          tasks and wait on all of them to finish and does the finish up work).
+     *                                      tasks before initialising DerivedMetricsCalculator (It is basically like
+     *                                                                          a service that executes the
+     *                                      tasks and wait on all of them to finish and does the finish up work).
      */
     @Override
     protected void doRun(TasksExecutionServiceProvider tasksExecutionServiceProvider) {
         // reading a value from the config.yml file
-        List<Map<String,String>> servers = (List<Map<String,String>>)getContextConfiguration().getConfigYml().get("servers");
+        List<Map<String, String>> servers = (List<Map<String, String>>) getContextConfiguration().getConfigYml().get(
+                "servers");
         AssertUtils.assertNotNull(servers, "The 'servers' section in config.yml is not initialised");
         /*
          Each task is executed in thread pool, you can have one task to fetch metrics from each artifact concurrently
          */
         for (Map<String, String> server : servers) {
-            ExtStarterMonitorTask task = new ExtStarterMonitorTask(getContextConfiguration(), tasksExecutionServiceProvider.getMetricWriteHelper(), server);
-            tasksExecutionServiceProvider.submit(server.get("name"),task);
+            ExtStarterMonitorTask task = new ExtStarterMonitorTask(getContextConfiguration(),
+                    tasksExecutionServiceProvider.getMetricWriteHelper(), server);
+            tasksExecutionServiceProvider.submit(server.get("name"), task);
         }
     }
 
@@ -111,7 +120,7 @@ public class ExtStarterMonitor extends ABaseMonitor {
      */
     @Override
     protected List<Map<String, ?>> getServers() {
-        List<Map<String,?>> servers = (List<Map<String,?>>)getContextConfiguration().getConfigYml().get("servers");
+        List<Map<String, ?>> servers = (List<Map<String, ?>>) getContextConfiguration().getConfigYml().get("servers");
         AssertUtils.assertNotNull(servers, "The 'servers' section in config.yml is not initialised");
         return servers;
     }
@@ -124,14 +133,13 @@ public class ExtStarterMonitor extends ABaseMonitor {
             extensionStarterEventsManager.createSchema();
             extensionStarterEventsManager.updateSchema();
             extensionStarterEventsManager.publishEvents();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             logger.error("Error encountered while publishing events");
         }
     }
 
     @Override
-    public MetricWriter getMetricWriter (String metricName) {
+    public MetricWriter getMetricWriter(String metricName) {
         return super.getMetricWriter(metricName);
     }
 }

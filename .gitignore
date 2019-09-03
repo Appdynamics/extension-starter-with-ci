@@ -1,6 +1,6 @@
-
 target/
 .idea
+.DS_Store
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -35,6 +35,3 @@ buildNumber.properties
 *.zip
 *.tar.gz
 *.rar
-
-*.iml
-*.DS_Store

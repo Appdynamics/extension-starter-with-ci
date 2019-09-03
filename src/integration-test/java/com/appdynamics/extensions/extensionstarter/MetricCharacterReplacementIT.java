@@ -1,9 +1,16 @@
 /*
- *   Copyright 2019. AppDynamics LLC and its affiliates.
- *   All Rights Reserved.
- *   This is unpublished proprietary source code of AppDynamics LLC and its affiliates.
- *   The copyright notice above does not evidence any actual or intended publication of such source code.
+ * Copyright (c) 2019 AppDynamics,Inc.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.appdynamics.extensions.extensionstarter;
@@ -20,6 +27,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static com.appdynamics.extensions.extensionstarter.Constants.*;
+import static com.appdynamics.extensions.extensionstarter.Constants.DEFAULT_METRIC_CHAR_REPLACEMENT_ENDPOINT;
+import static com.appdynamics.extensions.extensionstarter.Constants.DEFAULT_REPLACEMENT_OVERRIDDEN_ENDPOINT;
+import static com.appdynamics.extensions.extensionstarter.Constants.INVALID_CHAR_REPLACEMENT_ENDPPOINT;
+import static com.appdynamics.extensions.extensionstarter.Constants.MULTIPLE_CHAR_REPLACEMENT_ENDPOINT;
+import static com.appdynamics.extensions.extensionstarter.Constants.NON_ASCII_REPLACEMENT_ENDPOINT;
 import static com.appdynamics.extensions.extensionstarter.IntegrationTestUtils.initializeMetricAPIService;
 
 public class MetricCharacterReplacementIT {

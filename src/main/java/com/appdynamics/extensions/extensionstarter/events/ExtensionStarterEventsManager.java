@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2019 AppDynamics,Inc.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.appdynamics.extensions.extensionstarter.events;
 
 import com.appdynamics.extensions.eventsservice.EventsServiceDataManager;
@@ -12,7 +27,6 @@ import java.io.File;
 import java.util.List;
 
 public class ExtensionStarterEventsManager {
-
     private static final Logger logger = LoggerFactory.getLogger(ExtensionStarterEventsManager.class);
     private EventsServiceDataManager eventsServiceDataManager;
 
@@ -21,7 +35,8 @@ public class ExtensionStarterEventsManager {
     }
 
     public void createSchema() throws Exception {
-        eventsServiceDataManager.createSchema("BTDSchema", FileUtils.readFileToString(new File("src/main/resources/eventsservice/createSchema.json")));
+        eventsServiceDataManager.createSchema("BTDSchema", FileUtils.readFileToString(new File("src/main/resources" +
+                "/eventsservice/createSchema.json")));
     }
 
     public void updateSchema() throws Exception {
@@ -51,7 +66,8 @@ public class ExtensionStarterEventsManager {
                 eventsToBePublishedForSchema.add(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(node));
             }
         } catch (Exception ex) {
-            logger.error("Error encountered while generating events from file: {}", eventsFromFile.getAbsolutePath(), ex);
+            logger.error("Error encountered while generating events from file: {}", eventsFromFile.getAbsolutePath(),
+                    ex);
         }
         return eventsToBePublishedForSchema;
     }

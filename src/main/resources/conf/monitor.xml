@@ -1,0 +1,31 @@
+<!--
+  ~   Copyright 2018. AppDynamics LLC and its affiliates.
+  ~   All Rights Reserved.
+  ~   This is unpublished proprietary source code of AppDynamics LLC and its affiliates.
+  ~   The copyright notice above does not evidence any actual or intended publication of such source code.
+  ~
+  -->
+
+<monitor>
+    <name>ExtensionStarter</name>
+    <type>managed</type>
+    <description>Starter template to gather data from an http source</description>
+    <monitor-configuration>
+    </monitor-configuration>
+    <monitor-run-task>
+        <execution-style>periodic</execution-style>
+        <execution-frequency-in-seconds>60</execution-frequency-in-seconds>
+        <name>ExtensionStarter Monitor Run Task</name>
+        <display-name>ExtensionStarter Task</display-name>
+        <description>ExtensionStarter Task</description>
+        <type>java</type>
+        <execution-timeout-in-secs>120</execution-timeout-in-secs>
+        <task-arguments>
+            <argument name="config-file" is-required="true" default-value="monitors/ExtensionStarterMonitor/config.yml" />
+        </task-arguments>
+        <java-task>
+            <classpath>extension-starter.jar</classpath>
+            <impl-class>com.appdynamics.extensions.extensionstarter.ExtStarterMonitor</impl-class>
+        </java-task>
+    </monitor-run-task>
+</monitor>

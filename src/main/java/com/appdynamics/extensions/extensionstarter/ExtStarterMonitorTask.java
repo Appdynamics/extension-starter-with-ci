@@ -1,9 +1,16 @@
 /*
- *   Copyright 2018. AppDynamics LLC and its affiliates.
- *   All Rights Reserved.
- *   This is unpublished proprietary source code of AppDynamics LLC and its affiliates.
- *   The copyright notice above does not evidence any actual or intended publication of such source code.
+ * Copyright (c) 2019 AppDynamics,Inc.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.appdynamics.extensions.extensionstarter;
@@ -26,7 +33,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.appdynamics.extensions.extensionstarter.util.Constants.*;
+import static com.appdynamics.extensions.extensionstarter.util.Constants.DEFAULT_METRIC_SEPARATOR;
+import static com.appdynamics.extensions.extensionstarter.util.Constants.METRICS;
 
 /**
  * The ExtensionMonitorTask(namely "task") is an instance of {@link Runnable} needs to implement the interface
@@ -34,14 +42,12 @@ import static com.appdynamics.extensions.extensionstarter.util.Constants.*;
  * {@code onTaskComplete()} method which will be called once the {@code run()} method execution is done.
  */
 public class ExtStarterMonitorTask implements AMonitorTaskRunnable {
-
     private static final Logger logger = LoggerFactory.getLogger(ExtStarterMonitorTask.class);
     private MonitorContextConfiguration configuration;
     private MetricWriteHelper metricWriteHelper;
     private Map<String, String> server;
     private String metricPrefix;
     private List<Map<String, ?>> metricList;
-
 
     public ExtStarterMonitorTask(MonitorContextConfiguration configuration, MetricWriteHelper metricWriteHelper,
                                  Map<String, String> server) {
@@ -80,7 +86,8 @@ public class ExtStarterMonitorTask implements AMonitorTaskRunnable {
         logger.info("Created task and started working for Server: {}", server.get("name"));
         /*
          * It is in this function that you can get your metrics and process them and send them to the controller.
-         * You can look at the various extensions available on the community site and build your extension based on them.
+         * You can look at the various extensions available on the community site and build your extension based on
+         * them.
          *
          * */
 
