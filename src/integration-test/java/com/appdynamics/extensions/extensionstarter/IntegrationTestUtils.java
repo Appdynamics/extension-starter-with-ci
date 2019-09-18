@@ -41,8 +41,9 @@ import static com.appdynamics.extensions.Constants.ENCRYPTION_KEY;
 
 class IntegrationTestUtils {
     private static final Logger logger = ExtensionsLoggerFactory.getLogger(IntegrationTestUtils.class);
-    private static File installDir = new File("src/integration-test/resources/conf/");
-    private static File configFile = new File("src/integration-test/resources/conf/config_ci.yml");
+    // change to install dir path to initialize from controller-info.xml
+    private static final File INSTALL_DIR = null;
+    private static final File CONFIG_FILE = new File("src/integration-test/resources/conf/config.yml");
 
     static MetricAPIService initializeMetricAPIService() {
         ControllerAPIService controllerAPIService = initializeControllerAPIService();
@@ -68,7 +69,7 @@ class IntegrationTestUtils {
 
 
     private static ControllerAPIService initializeControllerAPIService() {
-        Map<String, ?> config = YmlReader.readFromFileAsMap(configFile);
+        Map<String, ?> config = YmlReader.readFromFileAsMap(CONFIG_FILE);
         config = ConfigProcessor.process(config);
         Map controllerInfoMap = (Map) config.get("controllerInfo");
         if (controllerInfoMap == null) {
@@ -78,7 +79,7 @@ class IntegrationTestUtils {
         controllerInfoMap.put("controllerHost","localhost");
         controllerInfoMap.put(ENCRYPTION_KEY, config.get(ENCRYPTION_KEY));
         try {
-            ControllerInfo controllerInfo = ControllerInfoFactory.initialize(controllerInfoMap, installDir);
+            ControllerInfo controllerInfo = ControllerInfoFactory.initialize(controllerInfoMap, INSTALL_DIR);
             logger.info("Initialized ControllerInfo");
             ControllerInfoValidator controllerInfoValidator = new ControllerInfoValidator(controllerInfo);
             if (controllerInfoValidator.isValidated()) {

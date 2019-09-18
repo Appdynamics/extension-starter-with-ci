@@ -45,7 +45,7 @@ public class CustomDashboardIT {
     }
 
     private boolean isDashboardPresent(JsonNode existingDashboards) {
-        String dashboardName = "Extension Starter BTD Dashboard";
+        String dashboardName = "Extension Starter Dashboard";
         if (existingDashboards != null) {
             for (JsonNode existingDashboard : existingDashboards) {
                 if (dashboardName.equals(getTextValue(existingDashboard.get("name")))) {

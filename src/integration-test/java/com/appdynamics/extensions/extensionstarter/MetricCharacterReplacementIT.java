@@ -49,7 +49,7 @@ public class MetricCharacterReplacementIT {
             if (jsonNode != null) {
                 JsonNode valueNode = JsonUtils.getNestedObject(jsonNode, "metricName");
                 String metricName = (valueNode == null) ? "" : valueNode.get(0).toString();
-                Assert.assertEquals("\"Custom Metrics|Extension Starter CI|Character Replacement|Pipe\"", metricName);
+                Assert.assertEquals("\"Custom Metrics|Extension Starter|Character Replacement|Pipe\"", metricName);
             } else {
                 Assert.fail("Failed to connect to the Controller API");
             }
@@ -63,7 +63,7 @@ public class MetricCharacterReplacementIT {
             if (jsonNode != null) {
                 JsonNode valueNode = JsonUtils.getNestedObject(jsonNode, "metricName");
                 String metricName = (valueNode == null) ? "" : valueNode.get(0).toString();
-                Assert.assertEquals("\"Custom Metrics|Extension Starter CI|Character Replacement|Comma%\"", metricName);
+                Assert.assertEquals("\"Custom Metrics|Extension Starter|Character Replacement|Comma%\"", metricName);
             } else {
                 Assert.fail("Failed to connect to the Controller API");
             }
@@ -77,7 +77,7 @@ public class MetricCharacterReplacementIT {
             if (jsonNode != null) {
                 JsonNode valueNode = JsonUtils.getNestedObject(jsonNode, "metricName");
                 String metricName = (valueNode == null) ? "" : valueNode.get(0).toString();
-                Assert.assertEquals("\"Custom Metrics|Extension Starter CI|Character Replacement|#Colon\"", metricName);
+                Assert.assertEquals("\"Custom Metrics|Extension Starter|Character Replacement|#Colon\"", metricName);
             } else {
                 Assert.fail("Failed to connect to the Controller API");
             }
@@ -92,7 +92,7 @@ public class MetricCharacterReplacementIT {
             if (jsonNode != null) {
                 JsonNode valueNode = JsonUtils.getNestedObject(jsonNode, "metricName");
                 String metricName = (valueNode == null) ? "" : valueNode.get(0).toString();
-                Assert.assertEquals("\"Custom Metrics|Extension Starter CI|Character Replacement|Memory Used\"", metricName);
+                Assert.assertEquals("\"Custom Metrics|Extension Starter|Character Replacement|Memory Used\"", metricName);
             } else {
                 Assert.fail("Failed to connect to the Controller API");
             }
@@ -106,7 +106,7 @@ public class MetricCharacterReplacementIT {
             if (jsonNode != null) {
                 JsonNode valueNode = JsonUtils.getNestedObject(jsonNode, "metricName");
                 String metricName = (valueNode == null) ? "" : valueNode.get(0).toString();
-                Assert.assertEquals("\"Custom Metrics|Extension Starter CI|Character Replacement|QuestionMark\"", metricName);
+                Assert.assertEquals("\"Custom Metrics|Extension Starter|Character Replacement|QuestionMark\"", metricName);
             } else {
                 Assert.fail("Failed to connect to the Controller API");
             }

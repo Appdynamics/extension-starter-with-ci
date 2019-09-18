@@ -63,7 +63,7 @@ public class MetricUploadIT {
                 String metricName = (valueNode == null) ? "" : valueNode.get(0).toString();
                 valueNode = JsonUtils.getNestedObject(jsonNode, "*", "metricValues", "*", "value");
                 int metricValue = (valueNode == null) ? 0 : valueNode.get(0).asInt();
-                Assert.assertEquals("\"Custom Metrics|Extension Starter CI|Outgoing Requests\"", metricName);
+                Assert.assertEquals("\"Custom Metrics|Extension Starter|Outgoing Requests\"", metricName);
                 Assert.assertEquals(100, metricValue);
             }
         }

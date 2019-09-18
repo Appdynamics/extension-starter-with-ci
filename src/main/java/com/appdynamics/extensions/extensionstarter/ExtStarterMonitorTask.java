@@ -145,17 +145,17 @@ public class ExtStarterMonitorTask implements AMonitorTaskRunnable {
 
     private void generateMetricsForCharReplacement(List<Metric> metrics) {
         Metric metric1 = new Metric("Pipe|", "10", new HashMap<String, Object>(),
-                "Custom Metrics|Extension Starter CI|Character Replacement|", "Pipe|");
+                "Custom Metrics|Extension Starter|Character Replacement|", "Pipe|");
         Metric metric2 = new Metric("Comma,", "10", new HashMap<String, Object>(),
-                "Custom Metrics|Extension Starter CI|Character Replacement|", "Comma,");
+                "Custom Metrics|Extension Starter|Character Replacement|", "Comma,");
         Metric metric3 = new Metric(":Colon", "10", new HashMap<String, Object>(),
-                "Custom Metrics|Extension Starter CI|Character Replacement|", ":Colon");
+                "Custom Metrics|Extension Starter|Character Replacement|", ":Colon");
         Metric metric4 = new Metric("Memóry Free", "10", new HashMap<String, Object>(),
-                "Custom Metrics|Extension Starter CI|Character Replacement|", "Memóry Free");
+                "Custom Metrics|Extension Starter|Character Replacement|", "Memóry Free");
         Metric metric5 = new Metric("Memory Üsed", "10", new HashMap<String, Object>(),
-                "Custom Metrics|Extension Starter CI|Character Replacement|", "Memory \u00dcsed");
+                "Custom Metrics|Extension Starter|Character Replacement|", "Memory \u00dcsed");
         Metric metric6 = new Metric("Question?Mark", "10", new HashMap<String, Object>(),
-                "Custom Metrics|Extension Starter CI|Character Replacement|", "Question?Mark");
+                "Custom Metrics|Extension Starter|Character Replacement|", "Question?Mark");
         metrics.add(metric1);
         metrics.add(metric2);
         metrics.add(metric3);

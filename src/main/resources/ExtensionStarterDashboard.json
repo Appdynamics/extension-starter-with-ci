@@ -1,7 +1,7 @@
 {
     "schemaVersion": null,
     "dashboardFormatVersion": "4.0",
-    "name": "Extension Starter BTD Dashboard",
+    "name": "Extension Starter Dashboard",
     "description": null,
     "properties": null,
     "templateEntityType": "APPLICATION_COMPONENT_NODE",
@@ -76,7 +76,7 @@
                             "displayName": "null",
                             "inputMetricText": false,
                             "inputMetricPath": null,
-                            "relativeMetricPath": "Custom Metrics|Extension Starter CI|Total Number of Requests "
+                            "relativeMetricPath": "Custom Metrics|Extension Starter|Total Number of Requests"
                         },
                         "rollupMetricData": false,
                         "expressionString": null,

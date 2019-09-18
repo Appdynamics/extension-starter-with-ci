@@ -58,7 +58,7 @@ public class EventsServiceIT {
 
     @Before
     public void setup() throws Exception {
-        File configFile = new File("src/integration-test/resources/conf/config_ci.yml");
+        File configFile = new File("src/integration-test/resources/conf/config.yml");
         Map<String, ?> config = YmlReader.readFromFileAsMap(configFile);
         config = ConfigProcessor.process(config);
         Map<String, Object> eventsServiceParameters = (Map)config.get("eventsServiceParameters");
