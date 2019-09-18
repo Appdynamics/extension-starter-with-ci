@@ -14,6 +14,7 @@ object AE_ExtensionStarter_Stop : BuildType({
 
     vcs {
         root(AE_ExtensionStarter)
+        cleanCheckout = true
     }
 
     steps {
@@ -37,6 +38,7 @@ object AE_ExtensionStarter_Stop : BuildType({
         }
         dependency(AE_ExtensionStarter_IntegrationTests) {
             snapshot {
+                onDependencyCancel = FailureAction.IGNORE
                 onDependencyFailure = FailureAction.IGNORE
                 runOnSameAgent = true
             }

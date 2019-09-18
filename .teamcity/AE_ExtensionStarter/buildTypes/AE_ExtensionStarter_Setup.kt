@@ -33,6 +33,12 @@ object AE_ExtensionStarter_Setup : BuildType({
         dependency(AE_ExtensionStarter_Build) {
             snapshot{
                 onDependencyFailure = FailureAction.FAIL_TO_START
+                runOnSameAgent = true
+            }
+            artifacts {
+                artifactRules = """
+                +:target/ExtensionStarterMonitor-*.zip => target/
+            """.trimIndent()
             }
         }
     }

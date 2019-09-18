@@ -23,10 +23,14 @@ object AE_ExtensionStarter_Build : BuildType({
         }
     }
 
-    triggers { 
-        vcs { 
-         }
-     }
+    triggers {
+        vcs {
+        }
+    }
+
+    artifactRules = """
+     +:target/ExtensionStarterMonitor-*.zip => target/
+""".trimIndent()
 
     publishCommitStatus()
 })
