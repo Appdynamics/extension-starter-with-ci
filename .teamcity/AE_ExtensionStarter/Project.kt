@@ -16,9 +16,8 @@ object Project : Project({
 
     vcsRoot(AE_ExtensionStarter)
     buildType(AE_ExtensionStarter_Build)
-    buildType(AE_ExtensionStarter_Setup)
     buildType(AE_ExtensionStarter_IntegrationTests)
-    buildType(AE_ExtensionStarter_Stop)
+    buildType(AE_ExtensionStarter_WorkbenchTest)
 
     features {
         versionedSettings {
@@ -31,10 +30,9 @@ object Project : Project({
         }
     }
 
-     buildTypesOrder = arrayListOf(
-         AE_ExtensionStarter_Build,
-         AE_ExtensionStarter_Setup,
-         AE_ExtensionStarter_IntegrationTests,
-         AE_ExtensionStarter_Stop
+    buildTypesOrder = arrayListOf(
+            AE_ExtensionStarter_Build,
+            AE_ExtensionStarter_IntegrationTests,
+            AE_ExtensionStarter_WorkbenchTest
     )
 })

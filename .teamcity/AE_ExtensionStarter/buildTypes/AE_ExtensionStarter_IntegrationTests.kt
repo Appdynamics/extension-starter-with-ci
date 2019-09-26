@@ -2,6 +2,8 @@ package AE_ExtensionStarter.buildTypes
 
 import AE_ExtensionStarter.publishCommitStatus
 import AE_ExtensionStarter.vcsRoots.AE_ExtensionStarter
+import AE_ExtensionStarter.withDefaults
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildType
 import jetbrains.buildServer.configs.kotlin.v2018_2.FailureAction
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.exec
@@ -12,16 +14,26 @@ object AE_ExtensionStarter_IntegrationTests : BuildType({
     uuid = "b98b39c6-99ed-4333-a600-a65b35cbde19"
     name = "Run Integration Tests"
 
-    vcs {
-        root(AE_ExtensionStarter)
-        cleanCheckout = true
-    }
+    withDefaults()
 
     steps {
+        exec {
+            path = "make"
+            arguments = "dockerRun sleep"
+        }
         maven {
             goals = "clean verify -DskipITs=false"
             mavenVersion = defaultProvidedVersion()
             jdkHome = "%env.JDK_18%"
+        }
+        exec {
+            path = "make"
+            arguments = "dockerStop"
+        }
+        exec {
+            executionMode = BuildStep.ExecutionMode.ALWAYS
+            path = "make"
+            arguments = "dockerClean"
         }
     }
 
@@ -31,10 +43,14 @@ object AE_ExtensionStarter_IntegrationTests : BuildType({
     }
 
     dependencies {
-        dependency(AE_ExtensionStarter_Setup) {
+        dependency(AE_ExtensionStarter_Build) {
             snapshot {
                 onDependencyFailure = FailureAction.FAIL_TO_START
-                runOnSameAgent = true
+            }
+            artifacts {
+                artifactRules = """
+                +:target/ExtensionStarterMonitor-*.zip => target/
+            """.trimIndent()
             }
         }
     }

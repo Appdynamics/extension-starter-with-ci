@@ -17,3 +17,14 @@ fun BuildType.publishCommitStatus() {
         }
     }
 }
+
+fun BuildType.withDefaults() {
+    vcs {
+        root(AE_ExtensionStarter)
+        cleanCheckout = true
+    }
+
+    requirements {
+        matches("env.AGENT_OS", "Linux")
+    }
+}

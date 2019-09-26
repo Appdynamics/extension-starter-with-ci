@@ -1,10 +1,10 @@
 # Use this metricPrefix only if SIM is enabled
-metricPrefix: "Custom Metrics|Starter"
+metricPrefix: "Custom Metrics|Extension Starter"
 
 #Use this metricPrefix when SIM is not enabled
 #To find the <COMPONENT_ID> in your environment,
 #please follow the screenshot https://docs.appdynamics.com/display/PRO42/Build+a+Monitoring+Extension+Using+Java
-#metricPrefix: "Server|Component:<ComponentID>|Custom Metrics|Starter"
+#metricPrefix: "Server|Component:<ComponentID>|Custom Metrics|Extension Starter"
 
 servers:
 - host: https://www.appdynamics.com/
