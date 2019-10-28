@@ -15,7 +15,7 @@ object AE_ExtensionStarter_Build : BuildType({
 
     steps {
         maven {
-            goals = "clean install"
+            goals = "clean install -U"
             mavenVersion = defaultProvidedVersion()
             jdkHome = "%env.JDK_18%"
         }
