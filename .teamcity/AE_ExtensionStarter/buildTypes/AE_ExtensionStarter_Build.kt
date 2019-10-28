@@ -15,6 +15,11 @@ object AE_ExtensionStarter_Build : BuildType({
 
     steps {
         maven {
+            goals = "dependency:purge-local-repository"
+            mavenVersion = defaultProvidedVersion()
+            jdkHome = "%env.JDK_18%"
+        }
+        maven {
             goals = "clean install -U"
             mavenVersion = defaultProvidedVersion()
             jdkHome = "%env.JDK_18%"
