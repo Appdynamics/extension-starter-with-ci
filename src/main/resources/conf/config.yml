@@ -18,7 +18,7 @@ servers:
   passwordEncrypted: C043Fag+LKEZM0AQTWPy2g==
 
 # number of concurrent tasks
-numberOfThreads: 2
+numberOfThreads: 4
 encryptionKey: welcome
 
 connection:
@@ -26,7 +26,7 @@ connection:
   connectTimeout: 2000
   sslCertCheckEnabled: false
   sslVerifyHostname: false
-  sslProtocols: ["TLSv1"]
+  sslProtocols: ["TLSV1.2"]
 
 #proxy:
 #  uri: http://localhost:9090
@@ -57,7 +57,6 @@ metrics:
     aggregationType: "AVERAGE"
     timeRollUpType: "AVERAGE"
     clusterRollUpType: "INDIVIDUAL"
-    multiplier: ""
     convert:
     delta:
 - OutgoingRequests:

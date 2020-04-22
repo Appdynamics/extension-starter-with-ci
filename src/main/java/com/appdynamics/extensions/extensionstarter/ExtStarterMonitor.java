@@ -108,7 +108,10 @@ public class ExtStarterMonitor extends ABaseMonitor {
         for (Map<String, String> server : servers) {
             ExtStarterMonitorTask task = new ExtStarterMonitorTask(getContextConfiguration(),
                     tasksExecutionServiceProvider.getMetricWriteHelper(), server);
-            tasksExecutionServiceProvider.submit(server.get("name"), task);
+            tasksExecutionServiceProvider.submit(server.get("name") + " dummy", task);
+            HTTPMonitorTask task1 = new HTTPMonitorTask(getContextConfiguration(),
+                    tasksExecutionServiceProvider.getMetricWriteHelper(), server);
+            tasksExecutionServiceProvider.submit(server.get("name"), task1);
         }
     }
 

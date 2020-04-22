@@ -25,6 +25,7 @@ object AE_ExtensionStarter_IntegrationTests : BuildType({
             goals = "clean verify -DskipITs=false"
             mavenVersion = defaultProvidedVersion()
             jdkHome = "%env.JDK_18%"
+            userSettingsSelection = "teamcity-settings"
         }
         exec {
             path = "make"
@@ -41,6 +42,10 @@ object AE_ExtensionStarter_IntegrationTests : BuildType({
         vcs {
         }
     }
+
+    artifactRules = """
+        /opt/buildAgent/work/machine-agent-logs => target/
+""".trimIndent()
 
     dependencies {
         dependency(AE_ExtensionStarter_Build) {
