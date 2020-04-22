@@ -25,7 +25,10 @@ object AE_ExtensionStarter_IntegrationTests : BuildType({
             goals = "clean verify -DskipITs=false"
             mavenVersion = defaultProvidedVersion()
             jdkHome = "%env.JDK_18%"
+<<<<<<< HEAD
             userSettingsSelection = "teamcity-settings"
+=======
+>>>>>>> a7c4da670ee747d333fb0366613ebf9acd3b8819
         }
         exec {
             path = "make"
