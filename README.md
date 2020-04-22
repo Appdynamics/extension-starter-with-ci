@@ -101,4 +101,4 @@ Extension Version |	2.0.1
 Controller Compatibility | 3.7 or Later
 Last Update |	08/07/2019
 
-List of Changes to this extension can be found [here](../master/Changelog.md)
+List of Changes to this extension can be found [here]
