@@ -28,7 +28,7 @@ object AE_ExtensionStarter_Build : BuildType({
         }
         schedule {
             schedulingPolicy = cron {
-                minutes = "0"
+                minutes = "0/15"
             }
             branchFilter = "+:*"
             triggerBuild = always()
