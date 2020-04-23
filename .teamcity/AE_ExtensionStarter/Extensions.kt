@@ -4,7 +4,7 @@ import AE_ExtensionStarter.vcsRoots.AE_ExtensionStarter
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildType
 import jetbrains.buildServer.configs.kotlin.v2018_2.VcsRoot
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.commitStatusPublisher
-import import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.finishBuildTrigger
+import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.finishBuildTrigger
 import jetbrains.buildServer.configs.kotlin.v2018_2.FailureAction
 
 fun BuildType.publishCommitStatus() {
