@@ -11,6 +11,7 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.schedule
 object AE_ExtensionStarter_Build : BuildType({
     uuid = "0b281445-b932-47b2-b6ba-d097e1563c41"
     name = "Extension Starter Build"
+    extId = "AE_ExtensionStarter_Build"
 
     withDefaults()
 

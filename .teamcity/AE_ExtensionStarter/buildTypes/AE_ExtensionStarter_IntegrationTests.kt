@@ -45,7 +45,7 @@ object AE_ExtensionStarter_IntegrationTests : BuildType({
         }
     }
 
-    runAfter(AE_ExtensionStarter_Build)
+    //runAfter(AE_ExtensionStarter_Build)
     triggerAfter(AE_ExtensionStarter_Build)
 
     artifactRules = """
