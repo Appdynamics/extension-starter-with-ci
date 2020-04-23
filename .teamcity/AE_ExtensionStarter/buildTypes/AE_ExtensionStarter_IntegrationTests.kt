@@ -1,6 +1,8 @@
 package AE_ExtensionStarter.buildTypes
 
 import AE_ExtensionStarter.publishCommitStatus
+import AE_ExtensionStarter.runAfter
+import AE_ExtensionStarter.triggerAfter
 import AE_ExtensionStarter.vcsRoots.AE_ExtensionStarter
 import AE_ExtensionStarter.withDefaults
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildStep
@@ -42,6 +44,9 @@ object AE_ExtensionStarter_IntegrationTests : BuildType({
         vcs {
         }
     }
+
+    runAfter(AE_ExtensionStarter_Build)
+    triggerAfter(AE_ExtensionStarter_Build)
 
     artifactRules = """
         /opt/buildAgent/work/machine-agent-logs => target/
