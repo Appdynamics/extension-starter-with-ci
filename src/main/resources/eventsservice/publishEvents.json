@@ -1,0 +1,27 @@
+[{
+  "appName" : "app1",
+  "metricName" : "testName1",
+  "metricPath" : "testPath1",
+  "metricValue" : "100"
+},{
+  "appName" : "app2",
+  "metricName" : "testName1",
+  "metricPath" : "testPath1",
+  "metricValue" : "100"
+},{
+  "appName" : "app3",
+  "metricName" : "testName1",
+  "metricPath" : "testPath1",
+  "metricValue" : "100"
+},{
+  "appName" : "app4",
+  "metricName" : "testName1",
+  "metricPath" : "testPath1",
+  "metricValue" : "100"
+},{
+  "appName" : "app5",
+  "metricName" : "testName1",
+  "metricPath" : "testPath1",
+  "metricValue" : "100"
+}
+]

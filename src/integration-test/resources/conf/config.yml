@@ -1,0 +1,136 @@
+# Use this metricPrefix only if SIM is enabled
+metricPrefix: "Custom Metrics|Extension Starter"
+
+#Use this metricPrefix when SIM is not enabled
+#To find the <COMPONENT_ID> in your environment,
+#please follow the screenshot https://docs.appdynamics.com/display/PRO42/Build+a+Monitoring+Extension+Using+Java
+#metricPrefix: "Server|Component:<ComponentID>|Custom Metrics|Extension Starter"
+
+servers:
+- host: https://www.appdynamics.com/
+  name: AppDynamics
+  username: user
+  password: welcome
+
+- host: https://www.yahoo.com/
+  name: Yahoo
+  username: user
+  passwordEncrypted: C043Fag+LKEZM0AQTWPy2g==
+
+# number of concurrent tasks
+numberOfThreads: 4
+encryptionKey: welcome
+
+connection:
+  socketTimeout: 2000
+  connectTimeout: 2000
+  sslCertCheckEnabled: false
+  sslVerifyHostname: false
+  sslProtocols: ["TLSv1.2"]
+
+#proxy:
+#  uri: http://localhost:9090
+#  username: proxyyuser
+#  password: proxypassword
+
+#taskSchedule:
+#  numberOfThreads: 1
+#  taskDelaySeconds: 300
+
+# below section shows how to configure metrics you want to pull and how to list metric's qualifiers
+
+#                                      List of metrics
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#Glossary of terms(These terms are used as properties for each metric):
+#   alias
+#   aggregationType
+#   timeRollUpType
+#   clusterRollUpType                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+#   multiplier
+#   convert
+#   delta
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+metrics:
+- IncomingRequests:
+    alias:
+    aggregationType: "AVERAGE"
+    timeRollUpType: "AVERAGE"
+    clusterRollUpType: "INDIVIDUAL"
+    multiplier: ""
+    convert:
+    delta:
+- OutgoingRequests:
+    alias: "Outgoing Requests"
+    aggregationType: "AVERAGE"
+    timeRollUpType: "AVERAGE"
+    clusterRollUpType: "INDIVIDUAL"
+    multiplier: "5"
+    convert:
+    delta:
+
+
+derivedMetrics:
+- derivedMetricPath: "Total Number of Requests"
+  formula: "IncomingRequests + Outgoing Requests"
+
+- derivedMetricPath: "{x}|Requests"
+  formula: "{x}|{y}|Requests"
+  aggregationType: "SUM"
+  timeRollUpType: "SUM"
+  clusterRollUpType: "COLLECTIVE"
+
+
+# Generate a custom dashboard based on the provided template
+customDashboard:
+  enabled: true
+  dashboardName: "Extension Starter Dashboard"
+  #  sslCertCheckEnabled: true
+  # Update the path to the dashboard file.
+  pathToSIMDashboard: "monitors/ExtensionStarterMonitor/ExtensionStarterDashboard.json"
+  periodicDashboardCheckInSeconds: 60
+
+# If any of the following fields are not set, the values of the specific fields are set from the system properties of the corresponding fields as specified in the comments.
+# If the system properties are not set for the field, then the data is retrieved from machine agent configFile. Please refer to ControllerInfoFactory for more details.
+controllerInfo:
+  controllerHost: "controller"
+  controllerPort: 8080
+  account: "customer1"
+  username: "user1"
+  password: "welcome"
+  encryptedPassword: ""
+  encryptionKey: ""
+  controllerSslEnabled: false
+  enableOrchestration: false
+  uniqueHostId: ""
+  accountAccessKey: "${APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY}"
+  machinePath: ""
+  simEnabled: true
+  applicationName: ""
+  tierName: ""
+  nodeName: ""
+
+metricPathReplacements:
+- replace: ","
+  replaceWith: "%"
+- replace: ":"
+  replaceWith: "_"
+- replace: ":"
+  replaceWith: "#"
+- replace: "\u00dc"
+  replaceWith: "U"
+- replace: "\u00f3"
+  replaceWith: "o"
+- replace: "?"
+  replaceWith: "|"
+
+# This field contains the various parameters required to initiate a connection and send data to the AppDynamics Events Service.
+eventsServiceParameters:
+  host: "localhost"
+  port: 9080
+  globalAccountName: ""
+  eventsApiKey: ""
+  useSSL: false
+
+# If not set, will be retrieved from "-Dappdynamics.agent.monitors.healthchecks.enable=true". Defaults to true.
+enableHealthChecks: true
