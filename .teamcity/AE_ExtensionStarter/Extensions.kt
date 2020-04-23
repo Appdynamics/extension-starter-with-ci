@@ -32,11 +32,10 @@ fun BuildType.withDefaults() {
 }
 
 fun BuildType.triggerAfter(buildType: BuildType, branchFilterSpec: String = BranchFilterSpec.branchFilterSpec) {
-    buildNumberPattern = "%dep." + buildType.extId + ".system.build.number%"
 
     triggers {
         finishBuildTrigger {
-            buildTypeExtId = buildType.extId
+            buildType(buildType)
             successfulOnly = true
             branchFilter = branchFilterSpec
         }
