@@ -28,9 +28,10 @@ object AE_ExtensionStarter_Build : BuildType({
         }
         schedule {
             schedulingPolicy = cron {
-                minutes = "0/15"
+                minutes = "30"
+                hours = "0/2"
             }
-            branchFilter = "+:*"
+            branchFilter = "+:master"
             triggerBuild = always()
             withPendingChangesOnly = false
             param("revisionRule", "lastFinished")

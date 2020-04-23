@@ -43,7 +43,7 @@ fun BuildType.withDefaults() {
     }
 }*/
 
-fun BuildTypeSettings.triggerAfter(buildJob: BuildTypeSettings, branches: String = BranchFilterSpec.allBranches) {
+fun BuildTypeSettings.triggerAfter(buildJob: BuildTypeSettings, branches: String = BranchFilterSpec.masterBranch) {
     triggers {
         finishBuildTrigger {
             buildType = "${buildJob.id}"
