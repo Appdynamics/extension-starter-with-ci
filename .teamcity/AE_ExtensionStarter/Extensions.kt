@@ -6,6 +6,7 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.VcsRoot
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.finishBuildTrigger
 import jetbrains.buildServer.configs.kotlin.v2018_2.FailureAction
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildTypeSettings
 
 fun BuildType.publishCommitStatus() {
     features {
@@ -31,13 +32,23 @@ fun BuildType.withDefaults() {
     }
 }
 
-fun BuildType.triggerAfter(buildType: BuildType, branchFilterSpec: String = BranchFilterSpec.branchFilterSpec) {
+/*fun BuildType.triggerAfter(buildType: BuildType, branchFilterSpec: String = BranchFilterSpec.allBranches) {
 
     triggers {
         finishBuildTrigger {
             buildType(buildType)
             successfulOnly = true
             branchFilter = branchFilterSpec
+        }
+    }
+}*/
+
+fun BuildTypeSettings.triggerAfter(buildJob: BuildTypeSettings, branches: String = BranchFilterSpec.allBranches) {
+    triggers {
+        finishBuildTrigger {
+            buildType = "${buildJob.id}"
+            successfulOnly = true
+            branchFilter = branches
         }
     }
 }

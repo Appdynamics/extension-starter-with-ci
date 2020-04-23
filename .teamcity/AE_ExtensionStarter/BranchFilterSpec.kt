@@ -1,16 +1,31 @@
 package AE_ExtensionStarter
 
 object BranchFilterSpec {
-    val allBranches = """
-                +:*
-                """.trimIndent()
+    /** A filter string for all branches */
+    val allBranches: String = """
+    +:*
+    """.trimIndent()
 
-    val releaseBranches = """
-                +:master
-                +:release/*
-                """.trimIndent()
+    /**
+     * A filter string for the master branch
+     */
+    val masterBranch: String = """
+    +:master
+    """.trimIndent()
 
-    val pullRequests = """
-                +:pull-requests/*
-                """.trimIndent()
+    /** A filter string for release branches */
+    val releaseBranches: String = """
+    +:master
+    +:release/*
+    """.trimIndent()
+
+    /** A filter string for pull request branches */
+    val pullRequests: String = """
+    +:pull-requests/*
+    """.trimIndent()
+
+    /** A filter string for the default branch */
+    val defaultBranch: String = """
+    +:<default>
+    """.trimIndent()
 }
