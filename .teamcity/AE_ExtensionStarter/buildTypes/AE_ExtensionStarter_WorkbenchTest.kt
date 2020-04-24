@@ -9,6 +9,7 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.FailureAction
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.exec
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.vcs
+import AE_ExtensionStarter.triggerAfter
 
 object AE_ExtensionStarter_WorkbenchTest : BuildType({
     uuid = "4ba3cb17-9e3f-4966-ac96-7a546d426023"
