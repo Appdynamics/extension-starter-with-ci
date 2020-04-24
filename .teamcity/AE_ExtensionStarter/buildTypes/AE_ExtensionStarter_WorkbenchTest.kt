@@ -47,4 +47,6 @@ object AE_ExtensionStarter_WorkbenchTest : BuildType({
     }
 
     publishCommitStatus()
+
+    triggerAfter(AE_ExtensionStarter_Build)
 })
