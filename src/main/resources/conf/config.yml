@@ -26,7 +26,7 @@ connection:
   connectTimeout: 2000
   sslCertCheckEnabled: false
   sslVerifyHostname: false
-  sslProtocols: ["TLSV1.2"]
+  sslProtocols: ["TLSv1.2"]
 
 #proxy:
 #  uri: http://localhost:9090
