@@ -16,10 +16,10 @@
 package com.appdynamics.extensions.extensionstarter.events;
 
 import com.appdynamics.extensions.eventsservice.EventsServiceDataManager;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import org.apache.commons.io.FileUtils;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

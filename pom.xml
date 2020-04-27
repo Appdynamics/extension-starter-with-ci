@@ -21,7 +21,7 @@
 
     <groupId>com.appdynamics.extensions</groupId>
     <artifactId>extension-starter</artifactId>
-    <version>2.0.2</version>
+    <version>2.2.2</version>
     <packaging>jar</packaging>
     <name>extension-starter</name>
 
@@ -43,19 +43,7 @@
         <dependency>
             <groupId>com.appdynamics</groupId>
             <artifactId>appd-exts-commons</artifactId>
-            <version>2.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.4</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-            <scope>provided</scope>
+            <version>2.2.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
