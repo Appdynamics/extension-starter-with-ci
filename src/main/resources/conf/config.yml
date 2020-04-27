@@ -68,5 +68,37 @@ metrics:
     convert:
     delta:
 
+
+# Generate a custom dashboard based on the provided template
+customDashboard:
+  enabled: true
+  dashboardName: "Extension Starter Dashboard"
+  #  sslCertCheckEnabled: true
+  # Update the path to the dashboard file.
+  pathToSIMDashboard: "monitors/SampleMonitor/SIMDashboard.json"
+  #pathToNormalDashboard: "monitors/SampleMonitor/normalDashboard.json"
+  periodicDashboardCheckInSeconds: 60
+
+# If any of the following fields are not set, the values of the specific fields are set from the system properties of the corresponding fields as specified in the comments.
+# If the system properties are not set for the field, then the data is retrieved from machine agent configFile. Please refer to ControllerInfoFactory for more details.
+controllerInfo:
+  controllerHost: "controller"
+  controllerPort: 8080
+  account: "customer1"
+  username: "user"
+  password: "welcome"
+  encryptedPassword: ""
+  encryptionKey: ""
+  controllerSslEnabled: false
+  enableOrchestration: false
+  uniqueHostId: ""
+  accountAccessKey: ""
+  machinePath: ""
+  simEnabled: true
+  applicationName: ""
+  tierName: ""
+  nodeName: ""
+
+
 # If not set, will be retrieved from "-Dappdynamics.agent.monitors.healthchecks.enable=true". Defaults to true.
 enableHealthChecks: true
