@@ -27,11 +27,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static com.appdynamics.extensions.extensionstarter.Constants.*;
-import static com.appdynamics.extensions.extensionstarter.Constants.DEFAULT_METRIC_CHAR_REPLACEMENT_ENDPOINT;
-import static com.appdynamics.extensions.extensionstarter.Constants.DEFAULT_REPLACEMENT_OVERRIDDEN_ENDPOINT;
-import static com.appdynamics.extensions.extensionstarter.Constants.INVALID_CHAR_REPLACEMENT_ENDPPOINT;
-import static com.appdynamics.extensions.extensionstarter.Constants.MULTIPLE_CHAR_REPLACEMENT_ENDPOINT;
-import static com.appdynamics.extensions.extensionstarter.Constants.NON_ASCII_REPLACEMENT_ENDPOINT;
 import static com.appdynamics.extensions.extensionstarter.IntegrationTestUtils.initializeMetricAPIService;
 
 public class MetricCharacterReplacementIT {

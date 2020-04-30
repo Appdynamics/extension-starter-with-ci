@@ -16,18 +16,18 @@
 package com.appdynamics.extensions.extensionstarter.events;
 
 import com.appdynamics.extensions.eventsservice.EventsServiceDataManager;
+import com.appdynamics.extensions.logging.ExtensionsLoggerFactory;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import org.apache.commons.io.FileUtils;
-import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.List;
 
 public class ExtensionStarterEventsManager {
-    private static final Logger logger = LoggerFactory.getLogger(ExtensionStarterEventsManager.class);
+    private static final Logger logger = ExtensionsLoggerFactory.getLogger(ExtensionStarterEventsManager.class);
     private EventsServiceDataManager eventsServiceDataManager;
 
     public ExtensionStarterEventsManager(EventsServiceDataManager eventsServiceDataManager) {

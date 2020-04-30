@@ -41,11 +41,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Map;
 
-import static com.appdynamics.extensions.eventsservice.utils.Constants.ACCEPTED_CONTENT_TYPE;
-import static com.appdynamics.extensions.eventsservice.utils.Constants.ACCEPT_HEADER;
-import static com.appdynamics.extensions.eventsservice.utils.Constants.ACCOUNT_NAME_HEADER;
-import static com.appdynamics.extensions.eventsservice.utils.Constants.API_KEY_HEADER;
-import static com.appdynamics.extensions.eventsservice.utils.Constants.SCHEMA_PATH;
+import static com.appdynamics.extensions.eventsservice.utils.Constants.*;
 
 public class EventsServiceIT {
     private static final Logger logger = ExtensionsLoggerFactory.getLogger(EventsServiceIT.class);
