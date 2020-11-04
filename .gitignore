@@ -35,3 +35,11 @@ buildNumber.properties
 *.zip
 *.tar.gz
 *.rar
+
+#BB to github
+.teamcity/*
+docker-compose.yml
+Dockerfile_MA
+Dockerfile_WorkBench
+Makefile
+src/integration-test/*
