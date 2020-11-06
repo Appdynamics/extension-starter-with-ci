@@ -37,9 +37,9 @@ buildNumber.properties
 *.rar
 
 #BB to github
-.teamcity/*
+.teamcity/
 docker-compose.yml
 Dockerfile_MA
 Dockerfile_WorkBench
 Makefile
-src/integration-test/*
+src/integration-test/
